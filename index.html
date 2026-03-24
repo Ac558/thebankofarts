@@ -1,1 +1,885 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bank of Arts™ | Institutional Cultural Finance</title>
+    <meta name="description" content="Sophisticated financial architecture for museums, galleries, and cultural institutions. Institutional-grade advisory for the business of art and cultural preservation.">
+    <meta property="og:title" content="The Bank of Arts™ | Financial Power Beyond The Canvas">
+    <meta property="og:description" content="Institutional stewardship for cultural enterprises">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='10' y='10' width='80' height='80' fill='none' stroke='%231a2744' stroke-width='4' rx='2'/><rect x='20' y='20' width='60' height='60' fill='none' stroke='%23c4a265' stroke-width='2'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "The Bank of Arts",
+      "alternateName": "Bo Arts LLC",
+      "description": "Institutional financial services for cultural enterprises",
+      "url": "https://thebankofarts.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "99 Wall Street, Suite 2787",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "postalCode": "10005",
+        "addressCountry": "US"
+      },
+      "email": "info@thebankofarts.com"
+    }
+    </script>
+    <style>
+        :root {
+            --bg-white: #ffffff;
+            --bg-cream: #faf9f7;
+            --bg-light: #f4f3f0;
+            --navy: #1a2744;
+            --navy-light: #2c3e5a;
+            --text-body: #3d3d3d;
+            --text-muted: #6b6b6b;
+            --text-dim: #999;
+            --accent: #c4a265;
+            --accent-dim: rgba(196, 162, 101, 0.12);
+            --accent-border: rgba(196, 162, 101, 0.25);
+            --border: rgba(26, 39, 68, 0.08);
+            --serif: 'Cormorant Garamond', 'Georgia', serif;
+            --sans: 'Outfit', 'Helvetica Neue', sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg-white);
+            color: var(--text-body);
+            line-height: 1.7;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ── TICKER ── */
+        .ticker-wrap {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: var(--navy);
+            overflow: hidden;
+            height: 34px;
+            display: flex;
+            align-items: center;
+        }
+        .ticker {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker-scroll 60s linear infinite;
+        }
+        .ticker-item {
+            font-family: var(--sans);
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            padding: 0 3rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .ticker-item::after {
+            content: '◆';
+            color: var(--accent);
+            opacity: 0.4;
+            font-size: 0.3rem;
+        }
+        @keyframes ticker-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 34px; left: 0; right: 0;
+            z-index: 999;
+            padding: 1.2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.5s ease;
+        }
+        .nav-logo {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--navy);
+            text-decoration: none;
+        }
+        .nav-logo span { color: var(--accent); }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+        }
+        .nav-links a {
+            font-family: var(--sans);
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-vault {
+            font-size: 0.55rem !important;
+            letter-spacing: 0.2em !important;
+            color: var(--accent) !important;
+            border: 1px solid var(--accent-border);
+            padding: 0.4rem 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .nav-vault:hover {
+            background: var(--accent-dim);
+            color: var(--navy) !important;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4rem;
+            padding-top: 90px;
+            background: var(--bg-cream);
+            position: relative;
+        }
+        .hero-content {
+            max-width: 680px;
+        }
+        .hero-label {
+            font-family: var(--sans);
+            font-size: 0.58rem;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 400;
+            line-height: 1.18;
+            color: var(--navy);
+            margin-bottom: 1.8rem;
+            letter-spacing: -0.01em;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 300;
+        }
+        .hero-sub {
+            font-family: var(--sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            max-width: 480px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.6s forwards;
+        }
+        .hero-cta {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 0.58rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--bg-white);
+            text-decoration: none;
+            background: var(--navy);
+            padding: 0.85rem 2.4rem;
+            transition: all 0.4s ease;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.8s forwards;
+        }
+        .hero-cta:hover {
+            background: var(--navy-light);
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-family: var(--sans);
+            font-size: 0.55rem;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 3rem;
+        }
+
+        /* ── SERVICES ── */
+        .services {
+            padding: 7rem 4rem;
+            background: var(--bg-white);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+        }
+        .service-card {
+            padding: 2.5rem 2rem;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.4s ease;
+        }
+        .service-card:hover { background: var(--bg-cream); }
+        .service-card h3 {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .service-card p {
+            font-family: var(--sans);
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* ── SECTORS ── */
+        .sectors {
+            padding: 7rem 4rem;
+            background: var(--bg-cream);
+        }
+        .sectors-intro {
+            font-family: var(--sans);
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            max-width: 560px;
+            line-height: 1.9;
+            margin-bottom: 3.5rem;
+        }
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--border);
+        }
+        .sector-item {
+            padding: 2.2rem 1.8rem;
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            transition: background 0.4s ease;
+        }
+        .sector-item:hover { background: var(--bg-white); }
+        .sector-item h4 {
+            font-family: var(--serif);
+            font-size: 1.08rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        .sector-item p {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 300;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        /* ── APPROACH ── */
+        .approach {
+            padding: 7rem 4rem;
+            max-width: 720px;
+            background: var(--bg-white);
+        }
+        .approach blockquote {
+            font-family: var(--serif);
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--navy);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.8rem;
+        }
+        .approach p {
+            font-family: var(--sans);
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.9;
+        }
+
+        /* ── IMPACT ── */
+        .impact {
+            padding: 7rem 4rem;
+            background: var(--bg-cream);
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+        }
+        .impact-card {
+            padding: 2.5rem 2rem;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.4s ease;
+        }
+        .impact-card:hover { background: var(--bg-white); }
+        .impact-num {
+            font-family: var(--sans);
+            font-size: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .impact-card h3 {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 0.8rem;
+        }
+        .impact-card p {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* ── INTELLIGENCE ── */
+        .intelligence {
+            padding: 7rem 4rem;
+            background: var(--bg-white);
+        }
+        .intel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--border);
+        }
+        .intel-item {
+            padding: 2.5rem 2rem 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .intel-item:not(:last-child) {
+            border-right: 1px solid var(--border);
+            padding-right: 2rem;
+            padding-left: 2rem;
+        }
+        .intel-item:first-child { padding-left: 0; }
+        .intel-stat {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 0.6rem;
+        }
+        .intel-desc {
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .intel-source {
+            font-family: var(--sans);
+            font-size: 0.58rem;
+            color: var(--text-dim);
+            letter-spacing: 0.1em;
+            margin-top: 0.7rem;
+        }
+
+        /* ── CONTACT ── */
+        .contact {
+            padding: 7rem 4rem;
+            background: var(--navy);
+            color: white;
+        }
+        .contact .section-label { color: var(--accent); }
+        .contact-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 4rem;
+        }
+        .contact-left { flex: 1; }
+        .contact h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 300;
+            color: white;
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+        }
+        .contact-text {
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            max-width: 420px;
+            margin-bottom: 2.5rem;
+        }
+        .contact-cta {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 0.58rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.85rem 2.4rem;
+            transition: all 0.4s ease;
+        }
+        .contact-cta:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.4);
+        }
+        .contact-right { text-align: right; }
+        .contact-detail {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.5);
+            line-height: 2;
+        }
+        .contact-detail a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-detail a:hover { color: var(--accent); }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 3.5rem 4rem 2.5rem;
+            background: var(--bg-cream);
+            border-top: 1px solid var(--border);
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+        .footer-logo {
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+        .footer-logo span { color: var(--accent); }
+        .footer-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+        .footer-links a {
+            font-family: var(--sans);
+            font-size: 0.52rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: var(--navy); }
+        .footer-disclaimer {
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            font-weight: 300;
+            color: var(--text-dim);
+            line-height: 1.9;
+            max-width: 860px;
+        }
+        .footer-copyright {
+            font-family: var(--sans);
+            font-size: 0.52rem;
+            color: var(--text-dim);
+            letter-spacing: 0.1em;
+            margin-top: 1.5rem;
+            opacity: 0.6;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+            .impact-grid { grid-template-columns: 1fr; }
+            .intel-grid { grid-template-columns: 1fr; }
+            .intel-item { padding-left: 0 !important; border-right: none !important; }
+            nav { padding: 1rem 2rem; }
+            .hero { padding: 0 2rem; }
+            .services, .sectors, .approach, .impact, .intelligence, .contact { padding: 5rem 2rem; }
+            footer { padding: 2.5rem 2rem; }
+            .contact-inner { flex-direction: column; }
+            .contact-right { text-align: left; }
+        }
+        @media (max-width: 640px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .sectors-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.9rem; }
+            .footer-top { flex-direction: column; gap: 1.2rem; align-items: flex-start; }
+        }
+
+        /* ── VAULT GATE ── */
+        .vault-gate {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg-white);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .vault-gate.active { display: flex; }
+        .vault-gate h2 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--navy);
+        }
+        .vault-gate p {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .vault-close {
+            font-family: var(--sans);
+            font-size: 0.58rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--navy);
+            cursor: pointer;
+            background: none;
+            border: 1px solid var(--border);
+            padding: 0.55rem 1.4rem;
+            transition: all 0.3s ease;
+        }
+        .vault-close:hover { background: var(--bg-cream); }
+    </style>
+</head>
+<body>
+
+<!-- ══════ TICKER ══════ -->
+<div class="ticker-wrap">
+    <div class="ticker" id="ticker">
+        <div class="ticker-item">Institutional Cultural Finance</div>
+        <div class="ticker-item">99 Wall Street, New York</div>
+        <div class="ticker-item">Advisory &amp; Strategic Partnerships</div>
+        <div class="ticker-item">Collection Strategy &amp; Preservation</div>
+        <div class="ticker-item">Gallery &amp; Institutional Partnerships</div>
+        <div class="ticker-item">SEC-Regulated Partner Infrastructure</div>
+        <div class="ticker-item">Art-Focused Financial Architecture</div>
+        <div class="ticker-item">Institutional Cultural Finance</div>
+        <div class="ticker-item">99 Wall Street, New York</div>
+        <div class="ticker-item">Advisory &amp; Strategic Partnerships</div>
+        <div class="ticker-item">Collection Strategy &amp; Preservation</div>
+        <div class="ticker-item">Gallery &amp; Institutional Partnerships</div>
+        <div class="ticker-item">SEC-Regulated Partner Infrastructure</div>
+        <div class="ticker-item">Art-Focused Financial Architecture</div>
+    </div>
+</div>
+
+<!-- ══════ NAV ══════ -->
+<nav>
+    <a href="#" class="nav-logo">The Bank of <span>Arts</span>&#8482;</a>
+    <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#approach">Approach</a>
+        <a href="#intelligence">Intelligence</a>
+        <a href="#contact">Contact</a>
+        <a href="#vault" class="nav-vault" id="vault-trigger">The Vault</a>
+    </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero" id="top">
+    <div class="hero-content">
+        <div class="hero-label">Financial Power Beyond the Canvas</div>
+        <h1>Sophisticated financial architecture for <em>cultural enterprises</em></h1>
+        <p class="hero-sub">We partner with galleries, collectors, and cultural institutions to design financial strategies that preserve legacy, unlock capital, and build enduring value.</p>
+        <a href="#contact" class="hero-cta">Begin a Confidential Conversation</a>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ SERVICES ══════ -->
+<section class="services" id="services">
+    <div class="section-label reveal">What We Do</div>
+    <div class="services-grid">
+        <div class="service-card reveal">
+            <h3>Strategic Advisory</h3>
+            <p>Institutional guidance on art as a component of broader wealth and legacy planning. Independent, conflict-free perspective on collection development, monetization, and long-term strategy.</p>
+        </div>
+        <div class="service-card reveal">
+            <h3>Capital Solutions</h3>
+            <p>We design and facilitate financial structures that connect cultural assets with institutional capital &mdash; working with our regulated partners to deliver compliant, scalable solutions.</p>
+        </div>
+        <div class="service-card reveal">
+            <h3>Gallery Partnerships</h3>
+            <p>We work with premier galleries to create financial distribution strategies for their inventory and collector relationships &mdash; providing the institutional infrastructure that scales gallery operations globally.</p>
+        </div>
+        <div class="service-card reveal">
+            <h3>Collection Strategy &amp; Preservation</h3>
+            <p>Intergenerational planning for art collections &mdash; preservation frameworks, tax-efficient structuring, philanthropic integration, and managed transition across generations.</p>
+        </div>
+        <div class="service-card reveal">
+            <h3>Investment Structuring</h3>
+            <p>We facilitate the design of art-focused investment vehicles and financial products through our network of registered broker-dealers and investment advisers.</p>
+        </div>
+        <div class="service-card reveal">
+            <h3>Institutional Compliance &amp; Governance</h3>
+            <p>Provenance due diligence, regulatory alignment, and financial integrity standards for art transactions &mdash; meeting the highest institutional expectations for transparency.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ SECTORS ══════ -->
+<section class="sectors" id="sectors">
+    <div class="section-label reveal">Sectors We Serve</div>
+    <p class="sectors-intro reveal">Culture is not a single industry &mdash; it is an interconnected ecosystem of creative disciplines, each with unique financial needs and extraordinary potential.</p>
+    <div class="sectors-grid">
+        <div class="sector-item reveal">
+            <h4>Fine Art &amp; Galleries</h4>
+            <p>Primary and secondary market advisory, inventory financing strategies, and collector relationship infrastructure.</p>
+        </div>
+        <div class="sector-item reveal">
+            <h4>Music &amp; Performing Arts</h4>
+            <p>Production financing facilitation, royalty structuring guidance, and festival operations strategy.</p>
+        </div>
+        <div class="sector-item reveal">
+            <h4>Cinema &amp; Media</h4>
+            <p>Film finance advisory, distribution strategy, and content fund design through regulated partners.</p>
+        </div>
+        <div class="sector-item reveal">
+            <h4>Publishing &amp; Literature</h4>
+            <p>Capital strategy for independent publishers, literary estates, and digital content enterprises.</p>
+        </div>
+        <div class="sector-item reveal">
+            <h4>Heritage &amp; Museums</h4>
+            <p>Endowment strategy, acquisition financing facilitation, and preservation fund architecture.</p>
+        </div>
+        <div class="sector-item reveal">
+            <h4>Digital &amp; Emerging Media</h4>
+            <p>NFT ecosystem advisory, blockchain provenance solutions, and digital asset strategy.</p>
+        </div>
+        <div class="sector-item reveal">
+            <h4>Live Events &amp; Exhibitions</h4>
+            <p>Festival finance, exhibition touring logistics, and institutional sponsorship frameworks.</p>
+        </div>
+        <div class="sector-item reveal">
+            <h4>Crafts &amp; Design</h4>
+            <p>Artisan enterprise development, luxury goods strategy, and heritage craft preservation.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ APPROACH ══════ -->
+<section class="approach" id="approach">
+    <div class="section-label reveal">Our Approach</div>
+    <blockquote class="reveal">Art deserves the same institutional rigor as any asset class &mdash; without losing what makes it extraordinary.</blockquote>
+    <p class="reveal">We work alongside registered broker-dealers and investment advisers to ensure every strategy meets the highest standards of regulatory compliance and fiduciary responsibility. Our role is to design the architecture &mdash; our regulated partners execute within their licensed domains.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ IMPACT ══════ -->
+<section class="impact" id="impact">
+    <div class="section-label reveal">Our Commitments</div>
+    <div class="impact-grid">
+        <div class="impact-card reveal">
+            <div class="impact-num">01</div>
+            <h3>Cultural Preservation</h3>
+            <p>Every strategy begins with the premise that preservation of artistic legacy is a non-negotiable priority.</p>
+        </div>
+        <div class="impact-card reveal">
+            <div class="impact-num">02</div>
+            <h3>Inclusion &amp; Access</h3>
+            <p>Institutional-grade financial architecture for creators and cultural organizations of all scales.</p>
+        </div>
+        <div class="impact-card reveal">
+            <div class="impact-num">03</div>
+            <h3>ESG &amp; Responsible Capital</h3>
+            <p>Environmental, social, and governance principles integrated from inception into every engagement.</p>
+        </div>
+        <div class="impact-card reveal">
+            <div class="impact-num">04</div>
+            <h3>Regulatory Integrity</h3>
+            <p>Full transparency. Every regulated function executed through independent, licensed third-party partners.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ INTELLIGENCE ══════ -->
+<section class="intelligence" id="intelligence">
+    <div class="section-label reveal">Market Intelligence</div>
+    <div class="intel-grid">
+        <div class="intel-item reveal">
+            <div class="intel-stat">$57.5B</div>
+            <div class="intel-desc">Global art market transaction volume in 2024, with the United States commanding 43% of transactions by value.</div>
+            <div class="intel-source">Art Basel &amp; UBS Report</div>
+        </div>
+        <div class="intel-item reveal">
+            <div class="intel-stat">$40B</div>
+            <div class="intel-desc">Projected global art-secured lending market by 2026 &mdash; institutional capital increasingly recognizing cultural assets.</div>
+            <div class="intel-source">Deloitte Art &amp; Finance</div>
+        </div>
+        <div class="intel-item reveal">
+            <div class="intel-stat">79%</div>
+            <div class="intel-desc">Of wealth stakeholders believe art should be formally integrated into comprehensive wealth management strategies.</div>
+            <div class="intel-source">Deloitte Private &amp; ArtTactic</div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════ CONTACT ══════ -->
+<section class="contact" id="contact">
+    <div class="contact-inner">
+        <div class="contact-left reveal">
+            <div class="section-label">Begin a Conversation</div>
+            <h2>Schedule a confidential consultation</h2>
+            <p class="contact-text">Every engagement begins with a private conversation. We welcome inquiries from galleries, collectors, cultural institutions, and their advisors.</p>
+            <a href="mailto:info@thebankofarts.com" class="contact-cta">Contact Us</a>
+        </div>
+        <div class="contact-right reveal">
+            <div class="contact-detail">
+                99 Wall Street, Suite 2787<br>
+                New York, NY 10005<br><br>
+                <a href="mailto:info@thebankofarts.com">info@thebankofarts.com</a><br><br>
+                thebankofarts.com
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-logo">The Bank of <span>Arts</span>&#8482;</div>
+        <div class="footer-links">
+            <a href="#top">Top</a>
+            <a href="#services">Services</a>
+            <a href="#sectors">Sectors</a>
+            <a href="#contact">Contact</a>
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+        </div>
+    </div>
+    <p class="footer-disclaimer">The Bank of Arts&#8482; is not an FDIC-insured bank. The Bank of Arts operates as an advisory firm facilitating financial strategies for cultural enterprises. Regulated financial services &mdash; including securities offerings, broker-dealer activities, and investment advisory &mdash; are provided exclusively through independent, registered, and regulated third-party partners in compliance with applicable federal and state securities laws. This website does not constitute an offer to sell or a solicitation to buy any securities.</p>
+    <p class="footer-copyright">&copy; 2026 The Bank of Arts&#8482; &mdash; Bo Arts LLC. All rights reserved.</p>
+</footer>
+
+<!-- ══════ VAULT GATE ══════ -->
+<div class="vault-gate" id="vault-gate">
+    <h2>The Vault</h2>
+    <p>Client access portal &mdash; launching soon.</p>
+    <button class="vault-close" id="vault-close">Return</button>
+</div>
+
+<!-- ══════ SCRIPTS ══════ -->
+<script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    document.getElementById('vault-trigger').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('vault-gate').classList.add('active');
+    });
+    document.getElementById('vault-close').addEventListener('click', () => {
+        document.getElementById('vault-gate').classList.remove('active');
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target && a.getAttribute('href') !== '#vault') {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
